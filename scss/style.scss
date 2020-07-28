@@ -1,0 +1,21 @@
+@import "normalize";
+@import "variables";
+@import "media_max";
+@import "fonts";
+@import "mixins";
+
+body {
+   font-family: 'Muli', sans-serif;
+   line-height: 1.5;
+}
+.container {
+   max-width: 1210px;
+   padding: 0 20px;
+   margin: 0 auto;
+}
+
+
+
+@include upto1024 {
+   
+}
