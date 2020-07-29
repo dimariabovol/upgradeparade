@@ -1,5 +1,5 @@
 @font-face {
-    font-family: 'Muli';
+    font-family: 'icomoon';
     src:  url('../fonts/icomoon.eot?nkz46t');
     src:  url('../fonts/icomoon.eot?nkz46t#iefix') format('embedded-opentype'),
       url('../fonts/icomoon.ttf?nkz46t') format('truetype'),
@@ -12,7 +12,7 @@
   
   [class^="icon-"], [class*=" icon-"] {
     /* use !important to prevent issues with browser extensions that change fonts */
-    font-family: 'Muli' !important;
+    font-family: 'icomoon' !important;
     speak: never;
     font-style: normal;
     font-weight: normal;
@@ -46,4 +46,3 @@
   .icon-check:before {
     content: "\e906";
   }
-  

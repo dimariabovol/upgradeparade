@@ -1,3 +1,4 @@
+@import url("https://use.typekit.net/ged0dms.css");
 @import "normalize";
 @import "variables";
 @import "media_max";
@@ -12,6 +13,250 @@ body {
    max-width: 1210px;
    padding: 0 20px;
    margin: 0 auto;
+}
+
+.nav { // navigation
+   display: flex;
+   &__link {
+      font-size: 15px;
+      font-weight: 400;
+      color: $text-color-l;
+      white-space: nowrap;
+      padding: 10px 0;
+      margin-right: 70px;
+      &_active {
+         color: $hover-color;
+      }
+   }
+}
+.extra { // extra link
+   display: flex;
+   align-items: center;
+   // width: 100%;
+   cursor: pointer;
+   position: relative;
+   .nav__link {margin-right: 0;}
+   &__menu {
+      display: flex;
+      flex-direction: column;
+      width: 200px;
+      border-top: 4px solid $hover-color;
+      background-color: $bg-headfoot;
+      transform: scaleY(0);
+      transform-origin: 50% 0;
+      position: absolute;
+      top: 57px;
+      right: 0;
+      z-index: 2;
+   }
+   &__link {
+      font-size: 15px;
+      font-weight: 400;
+      color: $text-color-l;
+      border-bottom: 1px solid #424242;
+      &:last-child {border-bottom: 0;}
+      white-space: nowrap;
+      padding: 10px 20px;
+   }
+   .icon-arrow-down {
+      font-size: 11px;
+      font-weight: 400;
+      color: $text-color-l;
+      margin: 0 0 3px 6px;
+   }
+   &.extra-menu {
+      .nav__link {
+         color: $hover-color;
+         transition: color .3s;
+      }
+      .extra__menu {
+         transform: scaleY(1);
+         transition: transform .3s;
+      }
+      .icon-arrow-down {
+         color: $hover-color;
+         transform: rotate(-180deg);
+         transition: color .3s, transform .3s;
+      }
+   }
+   @include to992 {
+      &__menu {
+         top: 41px;
+         left: 0;
+      }
+      &__link {
+         font-size: 15px;
+         font-weight: 400;
+         color: $text-color-l;
+         border-bottom: 1px solid #424242;
+         &:last-child {border-bottom: 0;}
+         white-space: nowrap;
+         padding: 10px 20px;
+      }
+   }
+}
+
+
+// header
+.header {
+   background-color: $bg-headfoot;
+   padding: 15px 0;
+   position: relative;
+   &__body {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+   }
+   &__logo {
+      margin-right: 20px;
+   }
+   &__burger {
+      display: none;
+      width: 28px;
+      height: 20px;
+      position: relative;
+      z-index: 1;
+      span {
+         display: inline-block;
+         width: 100%;
+         height: 2px;
+         background-color: $text-color-l;
+         position: absolute;
+         top: 50%;
+         transform: translateY(-50%);
+      }
+      &::before, &::after {
+         content: '';
+         display: inline-block;
+         width: 100%;
+         height: 2px;
+         background-color: $text-color-l;
+         position: absolute;
+      }
+      &::before {
+         top: 0;
+      }
+      &::after {
+         bottom: 0;
+      }
+   }
+   &.mob-menu {
+      .header__nav {
+         transform: scaleX(1);
+         transition: transform .3s;
+      }
+      .header__burger {
+         span {
+            transform: scale(0);
+            transition: transform .3s;
+         }
+         &::before {
+            top: 9px;
+            transform: rotate(-45deg);
+            transition: top .3s, transform .3s;
+         }
+         &::after {
+            bottom: 9px;
+            transform: rotate(45deg);
+            transition: bottom .3s, transform .3s;
+         }
+      }
+   }
+   @include to992 {
+      &__nav {
+         flex-direction: column;
+         width: 200px;
+         border-top: 4px solid $hover-color;
+         background-color: $bg-headfoot;
+         transform: scaleX(0);
+         transform-origin: 100% 50%;
+         position: absolute;
+         top: 70px;
+         right: 0;
+         z-index: 1;
+         .nav__link {
+            border-bottom: 1px solid #424242;
+            padding: 10px 20px;
+            margin-right: 0px;
+         }
+         .extra {
+            .nav__link {
+               border-bottom: 0;
+               padding: 10px 0px 10px 20px;
+            }
+         }
+      }
+      &__burger {
+         display: block;
+      }
+   }
+}
+
+// home
+.home {
+   background-image: url(../img/bg-home.jpg);
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-position: center;
+   padding: 200px 0;
+   position: relative;
+   z-index: 0;
+   &::before {
+      content: '';
+      background-color: rgba(0, 0, 0, 0.5);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+   }
+   &__body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+   }
+   &__title {
+      font-size: 60px;
+      font-weight: 700;
+      color: $text-color-l;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+   }
+   @include to768 {
+      padding: 150px 0;
+      &__title {
+         font-size: 48px;
+         margin-bottom: 5px;
+         
+      }
+   }
+   @include to425 {
+      padding: 100px 0;
+      &__title {
+         font-size: 32px;
+         margin-bottom: 2px;
+      }
+   }
+}
+// breadcrumbs
+.breadcrumbs {
+   display: flex;
+   align-items: center;
+   &__link {
+      font-size: 15px;
+      font-weight: 400;
+      color: #e0e0e0;
+      &_active {
+         color: $hover-color;
+      }
+   }
+   span {
+      font-size: 10px;
+      color: #e0e0e0;
+      margin: 0px 10px 3px;
+   }
 }
 
 
