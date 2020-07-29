@@ -276,7 +276,6 @@ section {
       }
    }
 }
-// breadcrumbs
 .breadcrumbs {
    display: flex;
    align-items: center;
@@ -300,6 +299,7 @@ section {
    }
 }
 
+// about
 .about {
    &__title {
       margin-bottom: 35px;
@@ -399,6 +399,53 @@ section {
       }
    }
 }
+
+// doing
+.doing {
+   background-color: $bg-color-d;
+   &__title {
+      margin-bottom: 35px;
+   }
+   &__list {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: -15px;
+   }
+   &__block {
+      max-width: 400px;
+      padding: 15px;
+   }
+   @include to768 {
+      &__title {
+         margin-bottom: 15px;
+      }
+      &__list {
+         margin: -10px;
+      }
+      &__block {
+         padding: 10px;
+      }
+   }
+}
+.doing-item {
+   &__img {
+      img {width: 100%;}
+   }
+   &__content {
+      background-color: $bg-color-l;
+      padding: 25px 20px;
+   }
+   &__title {
+      font-size: 20px;
+      font-weight: 700;
+      color: $text-color-d;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+   }
+   &__text {}
+}
+
 
 
 @include upto1024 {
