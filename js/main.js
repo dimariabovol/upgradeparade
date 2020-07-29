@@ -1,6 +1,7 @@
 $(document).ready(function(){
    mobMenu();
    extraMenu();
+   header();
 });
 
 function mobMenu() {
@@ -23,18 +24,29 @@ function mobMenu() {
 
 function extraMenu() {
    $(".extra").on('click', function () {
-         var $parent = $(".extra");
-         if ($parent.hasClass('extra-menu')) {
-            $parent.removeClass('extra-menu');
+         var $parent = $(".header");
+         if ($parent.hasClass('link-menu')) {
+            $parent.removeClass('link-menu');
          } else {
-            $parent.addClass('extra-menu');
+            $parent.addClass('link-menu');
          }
    }); 
    $(".wrapper").on('click', function(event) {
-      if (!$(event.target).closest(".extra").length) {
-         if ($(".extra").hasClass("extra-menu")) {
-            $(".extra").removeClass("extra-menu");
+      if (!$(event.target).closest(".extra .nav__link, .extra__menu").length) {
+         if ($(".header").hasClass("link-menu")) {
+            $(".header").removeClass("link-menu");
          }
+      }
+   });
+}
+
+function header() {
+   $(window).scroll(function() {
+      if ($(window).scrollTop() > 72) {
+         $('.header').addClass('shadow');
+      }
+      else {
+         $('.header').removeClass('shadow');
       }
    });
 }

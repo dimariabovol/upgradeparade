@@ -9,6 +9,9 @@ body {
    font-family: 'Muli', sans-serif;
    line-height: 1.5;
 }
+.wrapper {
+   position: relative;
+}
 section {
    padding: 75px 0;
    @include to768 {
@@ -78,21 +81,6 @@ section {
       color: $text-color-l;
       margin: 0 0 3px 6px;
    }
-   &.extra-menu {
-      .nav__link {
-         color: $hover-color;
-         transition: color .3s;
-      }
-      .extra__menu {
-         transform: scaleY(1);
-         transition: transform .3s;
-      }
-      .icon-arrow-down {
-         color: $hover-color;
-         transform: rotate(-180deg);
-         transition: color .3s, transform .3s;
-      }
-   }
    @include to992 {
       &__menu {
          top: 41px;
@@ -137,13 +125,27 @@ section {
 .header {
    background-color: $bg-headfoot;
    padding: 15px 0;
-   position: relative;
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   z-index: 1;
    &__body {
       display: flex;
       align-items: center;
       justify-content: space-between;
    }
    &__logo {
+      display: flex;
+      align-items: center;
+      img {
+         margin-right: 15px;
+      }
+      span {
+         font-size: 18px;
+         font-weight: 400;
+         color: $text-color-l;
+      }
       margin-right: 20px;
    }
    &__burger {
@@ -197,6 +199,27 @@ section {
             transition: bottom .3s, transform .3s;
          }
       }
+   }
+   &.link-menu {
+      .extra {
+         .nav__link {
+            color: $hover-color;
+            transition: color .3s;
+         }
+         .extra__menu {
+            transform: scaleY(1);
+            transition: transform .3s;
+         }
+         .icon-arrow-down {
+            color: $hover-color;
+            transform: rotate(-180deg);
+            transition: color .3s, transform .3s;
+         }
+      }
+   }
+   &.shadow {
+      box-shadow: 0px 6px 5px -5px rgba(255, 174, 0, 0.5);
+      box-shadow: 0px 6px 8px -5px rgba(0, 0, 0, 0.5);
    }
    @include to992 {
       &__nav {
@@ -261,7 +284,7 @@ section {
       margin-bottom: 15px;
    }
    @include to768 {
-      padding: 150px 0;
+      padding: 180px 0;
       &__title {
          font-size: 48px;
          margin-bottom: 5px;
@@ -269,7 +292,7 @@ section {
       }
    }
    @include to425 {
-      padding: 100px 0;
+      padding: 160px 0;
       &__title {
          font-size: 32px;
          margin-bottom: 2px;
@@ -443,10 +466,62 @@ section {
       text-transform: uppercase;
       margin-bottom: 20px;
    }
-   &__text {}
+   @include to768 {
+      &__content {
+         padding: 20px 15px;
+      }
+      &__title {
+         margin-bottom: 15px;
+      }
+   }
 }
 
 
+// footer
+.footer {
+   background-color: $bg-headfoot;
+   padding: 15px 0;
+   &__body {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+   }
+   &__text {
+      font-size: 15px;
+      font-weight: 400;
+      color: #eeeeee;
+      margin-right: 20px;
+   }
+   @include to768 {
+      &__text {
+         font-size: 14px;
+      }
+   }
+   @include to525 {
+      &__body {
+         flex-direction: column-reverse;
+      }
+      &__text {
+         text-align: center;
+         margin-top: 20px;
+      }
+   }
+}
+.social {
+   display: flex;
+   align-items: center;
+   margin: -5px;
+   &__link {
+      display: flex;
+      padding: 5px;
+      margin-right: 20px;
+      &:last-child {margin-right: 0;}
+      span {
+         font-size: 18px;
+         color: $text-color-l;
+      }
+   }
+}
 
 @include upto1024 {
    
