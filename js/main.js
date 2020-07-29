@@ -32,7 +32,7 @@ function extraMenu() {
          }
    }); 
    $(".wrapper").on('click', function(event) {
-      if (!$(event.target).closest(".extra .nav__link, .extra__menu").length) {
+      if (!$(event.target).closest(".extra, .extra__menu").length) {
          if ($(".header").hasClass("link-menu")) {
             $(".header").removeClass("link-menu");
          }

@@ -218,7 +218,7 @@ section {
       }
    }
    &.shadow {
-      box-shadow: 0px 6px 5px -5px rgba(255, 174, 0, 0.5);
+      background-color: rgba(34, 34, 34, 0.9);
       box-shadow: 0px 6px 8px -5px rgba(0, 0, 0, 0.5);
    }
    @include to992 {
@@ -524,5 +524,30 @@ section {
 }
 
 @include upto1024 {
-   
+   .nav__link:hover {
+      color: $hover-color;
+      transition: color .3s;
+   }
+   .extra:hover {
+      .nav__link {
+         color: $hover-color;
+         transition: color .3s;
+      }
+      .icon-arrow-down {
+         color: $hover-color;
+         transition: color .3s;
+      }
+   }
+   .extra__link:hover {
+      color: $hover-color;
+      transition: color .3s;
+   }
+   .breadcrumbs__link:hover {
+      color: $hover-color;
+      transition: color .3s;
+   }
+   .social__link span:hover {
+      color: $hover-color;
+      transition: color .3s;
+   }
 }
