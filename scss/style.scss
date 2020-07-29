@@ -309,14 +309,18 @@ section {
          color: $hover-color;
       }
    }
-   span {
-      font-size: 10px;
+   .icon-arrow-double {
+      font-size: 9px;
       color: #e0e0e0;
       margin: 0px 10px 3px;
    }
    @include to768 {
       &__link {
          font-size: 14px;
+      }
+      .icon-arrow-double {
+         font-size: 8px;
+         margin: 0px 10px 1px;
       }
    }
 }
