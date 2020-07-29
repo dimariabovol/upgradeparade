@@ -26,7 +26,6 @@ section {
       padding: 0 10px;
    }
 }
-
 .nav { // navigation
    display: flex;
    &__link {
@@ -46,13 +45,21 @@ section {
       }
    }
 }
-.extra { // extra link
+.dropdown { // extra link
    display: flex;
    align-items: center;
-   // width: 100%;
    cursor: pointer;
    position: relative;
-   .nav__link {margin-right: 0;}
+   .dropdown__button {
+      width: 100%;
+      margin-right: 0;
+      .icon-arrow-down {
+         font-size: 11px;
+         font-weight: 400;
+         color: $text-color-l;
+         margin: 0 0 3px 6px;
+      }
+   }
    &__menu {
       display: flex;
       flex-direction: column;
@@ -75,11 +82,20 @@ section {
       white-space: nowrap;
       padding: 10px 20px;
    }
-   .icon-arrow-down {
-      font-size: 11px;
-      font-weight: 400;
-      color: $text-color-l;
-      margin: 0 0 3px 6px;
+   &.dropdown-open {
+      .dropdown__button {
+         color: $hover-color;
+         transition: color .3s;
+         .icon-arrow-down {
+            color: $hover-color;
+            transform: rotate(-180deg);
+            transition: color .3s, transform .3s;
+         }
+      }
+      .dropdown__menu {
+         transform: scaleY(1);
+         transition: transform .3s;
+      }
    }
    @include to992 {
       &__menu {
@@ -197,23 +213,6 @@ section {
             bottom: 9px;
             transform: rotate(45deg);
             transition: bottom .3s, transform .3s;
-         }
-      }
-   }
-   &.link-menu {
-      .extra {
-         .nav__link {
-            color: $hover-color;
-            transition: color .3s;
-         }
-         .extra__menu {
-            transform: scaleY(1);
-            transition: transform .3s;
-         }
-         .icon-arrow-down {
-            color: $hover-color;
-            transform: rotate(-180deg);
-            transition: color .3s, transform .3s;
          }
       }
    }
@@ -528,17 +527,17 @@ section {
       color: $hover-color;
       transition: color .3s;
    }
-   .extra:hover {
-      .nav__link {
+   .dropdown:hover {
+      .dropdown__button {
          color: $hover-color;
          transition: color .3s;
-      }
-      .icon-arrow-down {
-         color: $hover-color;
-         transition: color .3s;
+         .icon-arrow-down {
+            color: $hover-color;
+            transition: color .3s;
+         }
       }
    }
-   .extra__link:hover {
+   .dropdown__link:hover {
       color: $hover-color;
       transition: color .3s;
    }
