@@ -9,10 +9,19 @@ body {
    font-family: 'Muli', sans-serif;
    line-height: 1.5;
 }
+section {
+   padding: 75px 0;
+   @include to768 {
+      padding: 40px 0;
+   }
+}
 .container {
    max-width: 1210px;
    padding: 0 20px;
    margin: 0 auto;
+   @include to768 {
+      padding: 0 10px;
+   }
 }
 
 .nav { // navigation
@@ -26,6 +35,11 @@ body {
       margin-right: 70px;
       &_active {
          color: $hover-color;
+      }
+   }
+   @include to768{
+      &__link {
+         font-size: 14px;
       }
    }
 }
@@ -94,8 +108,30 @@ body {
          padding: 10px 20px;
       }
    }
+   @include to768 {
+      &__link {
+         font-size: 14px;
+      }
+   }
 }
-
+.title { // title of section
+   font-size: 35px;
+   font-weight: 700;
+   color: $text-color-d;
+   text-align: center;
+   text-transform: uppercase;
+   @include to768{
+      font-size: 24px;
+   }
+}
+.text { // text
+   font-size: 15px;
+   font-weight: 400;
+   color: $text-color-d;
+   @include to768{
+      font-size: 14px;
+   }
+}
 
 // header
 .header {
@@ -257,8 +293,112 @@ body {
       color: #e0e0e0;
       margin: 0px 10px 3px;
    }
+   @include to768 {
+      &__link {
+         font-size: 14px;
+      }
+   }
 }
 
+.about {
+   &__title {
+      margin-bottom: 35px;
+   }
+   &__body {
+      display: flex;
+      flex-wrap: wrap;
+   }
+   &__img {
+      display: flex;
+      align-items: flex-start;
+      flex: 1 1;
+      margin-right: 30px;
+      img {
+         width: 100%;
+         max-width: 570px;
+      }
+   }
+   &__content {
+      flex: 1 1;
+   }
+   &__text {
+      margin-bottom: 30px;
+      p {
+         margin-bottom: 25px;
+         &:last-child {margin-bottom: 0;}
+      }
+   }
+   @include to1024 {
+      &__img {
+         flex: 100%;
+         justify-content: center;
+         margin-right: 0;
+         margin-bottom: 25px;
+         img {
+            max-width: 500px;
+         }
+      }
+      &__content {
+         flex: 100%;
+      }
+      &__text {
+         p {
+            max-width: 780px;
+         }
+      }
+   }
+   @include to768 {
+      &__title {
+         margin-bottom: 15px;
+      }
+      &__img {
+         margin-bottom: 15px;
+         img {
+            max-width: 440px;
+         }
+      }
+      &__text {
+         p {
+            margin-bottom: 15px;
+         }
+      }
+   }
+}
+.about-info {
+   &__title {
+      font-size: 20px;
+      font-weight: 700;
+      color: $text-color-d;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+   }
+   &__list {
+      margin-left: 10px;
+   }
+   &__item {
+      margin-bottom: 10px;
+      &:last-child {margin-bottom: 0;}
+      .icon-check {
+         font-size: 14px;
+         color: $hover-color;
+         margin-right: 3px;
+      }
+   }
+   @include to768 {
+      &__title {
+         margin-bottom: 10px;
+      }
+      &__list {
+         margin-left: 0px;
+      }
+      &__item {
+         margin-bottom: 5px;
+         .icon-check {
+            font-size: 13px;
+         }
+      }
+   }
+}
 
 
 @include upto1024 {
