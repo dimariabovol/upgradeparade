@@ -12,6 +12,9 @@ body {
 .wrapper {
    position: relative;
 }
+.main {
+   margin-top: 70px;
+}
 section {
    padding: 75px 0;
    @include to768 {
@@ -33,7 +36,7 @@ section {
       font-weight: 400;
       color: $text-color-l;
       white-space: nowrap;
-      padding: 10px 0;
+      padding: 5px 0;
       margin-right: 70px;
       &_active {
          color: $hover-color;

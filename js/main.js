@@ -42,7 +42,7 @@ function dropdown() {
 
 function header() {
    $(window).scroll(function() {
-      if ($(window).scrollTop() > 72) {
+      if ($(window).scrollTop() > 70) {
          $('.header').addClass('shadow');
       }
       else {
